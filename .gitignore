@@ -2,3 +2,6 @@
 *cpp
 *h
 __pycache__
+
+# produced with pyuic5
+mainwindow.py
