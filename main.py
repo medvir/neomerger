@@ -67,7 +67,7 @@ class ExampleApp(QMainWindow, mainwindow.Ui_MainWindow):
             self.listWidget_2.addItem(i2)
 
     def process_all(self):
-        conversion.merge(
+        outcome = conversion.merge(
             logfile_1=self.log1_line.text(),
             logfile_2=self.log2_line.text(),
             MSNumber=self.MS_line.text() + '.csv',
@@ -78,7 +78,7 @@ class ExampleApp(QMainWindow, mainwindow.Ui_MainWindow):
             Reads=self.cycles_line.text()
             )
 
-        # self.statusBar.showMessage(self.lineEdit.text())
+        self.statusBar.showMessage('File %s written' % outcome)
 
 
 def main():

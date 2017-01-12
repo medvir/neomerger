@@ -96,6 +96,8 @@ def merge(logfile_1=None, logfile_2=None, MSNumber=None,
             cw.writerow([Sample_ID, Sample_Name, None, Adapters[I7_Index_ID],
                          I7_Index_ID, index, None, None])
 
+    return MSNumber
+
 
 def parse_indices(logfile_1=None, logfile_2=None):
     '''Only parse indices'''
