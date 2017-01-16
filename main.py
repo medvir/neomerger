@@ -1,8 +1,9 @@
 import sys  # We need sys so that we can pass argv to QApplication
 
 # from PyQt5 import QtGui  # Import the PyQt5 module we'll need
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PyQt5 import QtCore
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
+# from PyQt5.QtGui import QIcon
 
 import mainwindow  # this holds our MainWindow and all design related things
 import conversion  # this performs the merge
@@ -21,6 +22,10 @@ class ExampleApp(QMainWindow, mainwindow.Ui_MainWindow):
 
         # On mac, menubars are displayed on the system by default. Disable
         self.menuBar.setNativeMenuBar(False)
+
+        # Add trigger to menubar items
+        self.actionQuit.triggered.connect(self.close)
+        self.actionInfo.triggered.connect(show_info)
 
         # Set current date
         self.dateEdit.setDate(QtCore.QDate.currentDate())
@@ -79,6 +84,12 @@ class ExampleApp(QMainWindow, mainwindow.Ui_MainWindow):
             )
 
         self.statusBar.showMessage('File %s written' % outcome)
+
+
+def show_info():
+    msgbox = QMessageBox()
+    msgbox.setText('A program by IMV')
+    msgbox.exec_()
 
 
 def main():

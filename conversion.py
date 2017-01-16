@@ -17,6 +17,8 @@ def parse_sample_info(filename):
     ''' Reads from [Sample Information] to next separator
     '''
     ret_lines = []
+    if filename == '':
+        return ret_lines
     with open(filename) as f:
         parsing = False
         for l in f:
@@ -84,7 +86,8 @@ def merge(logfile_1=None, logfile_2=None, MSNumber=None,
 
         # The third part adds all samples from another NeoPrep run which
         # indices are not used already
-        ret_2 = parse_sample_info(logfile_2)
+        if logfile_2 == '':
+            return MSNumber
         for n2, r in enumerate(ret_2):
             assert int(r[0]) == n2 + 1, 'Missing samples'
             Sample_ID = n + n2 + 2  # n + 1 + n2 + 1

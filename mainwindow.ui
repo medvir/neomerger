@@ -230,13 +230,19 @@
    </property>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
-     <string>About</string>
+     <string>Menu</string>
     </property>
     <addaction name="actionQuit"/>
+    <addaction name="separator"/>
+    <addaction name="actionInfo"/>
    </widget>
    <addaction name="menuAbout"/>
   </widget>
   <action name="actionQuit">
+   <property name="icon">
+    <iconset>
+     <normaloff>quit.png</normaloff>quit.png</iconset>
+   </property>
    <property name="text">
     <string>Quit</string>
    </property>
@@ -245,6 +251,18 @@
    </property>
    <property name="shortcut">
     <string>Meta+Q</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="icon">
+    <iconset>
+     <normaloff>info.png</normaloff>info.png</iconset>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+I</string>
    </property>
   </action>
  </widget>
