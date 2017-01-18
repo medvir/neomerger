@@ -1,5 +1,5 @@
 import sys  # We need sys so that we can pass argv to QApplication
-
+from os.path import expanduser
 # from PyQt5 import QtGui  # Import the PyQt5 module we'll need
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
@@ -9,7 +9,7 @@ import mainwindow  # this holds our MainWindow and all design related things
 import conversion  # this performs the merge
 
 
-class ExampleApp(QMainWindow, mainwindow.Ui_MainWindow):
+class MainWin(QMainWindow, mainwindow.Ui_MainWindow):
     def __init__(self):
         # Explaining super is out of the scope of this article
         # So please google it if you're not familar with it
@@ -30,21 +30,22 @@ class ExampleApp(QMainWindow, mainwindow.Ui_MainWindow):
         # Set current date
         self.dateEdit.setDate(QtCore.QDate.currentDate())
 
-        # When the button is pressed, execute select_file function
+        # Connect button press to functions
         self.log1Button.clicked.connect(self.select_file1)
         self.log2Button.clicked.connect(self.select_file2)
 
         self.listButton.clicked.connect(self.parse_indices)
 
+        self.outFolderButton.clicked.connect(self.select_output)
+
         self.mergeButton.clicked.connect(self.process_all)
 
     def select_file1(self):
-        # self.log1_line.clear() # In case any existing element is present
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(
             self,
-            "QFileDialog.getOpenFileName()", "",
+            "Selecting log file 1", "",
             "Log Files (*.log);;All Files (*)", options=options
             )
         if fileName:
@@ -55,7 +56,7 @@ class ExampleApp(QMainWindow, mainwindow.Ui_MainWindow):
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(
             self,
-            "QFileDialog.getOpenFileName()", "",
+            "Selecting log file 2", "",
             "Log Files (*.log);;All Files (*)", options=options
             )
         if fileName:
@@ -70,6 +71,19 @@ class ExampleApp(QMainWindow, mainwindow.Ui_MainWindow):
             self.listWidget_1.addItem(i1)
         for i2 in ind_2:
             self.listWidget_2.addItem(i2)
+
+    def select_output(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        options |= QFileDialog.ShowDirsOnly
+        dirName = QFileDialog.getExistingDirectory(
+            self,
+            "Select folder for output file",
+            expanduser('~'),
+            options=options
+            )
+        if dirName:
+            self.outfolder_line.insert(dirName)
 
     def process_all(self):
         outcome = conversion.merge(
@@ -94,9 +108,9 @@ def show_info():
 
 def main():
     app = QApplication(sys.argv)  # A new instance of QApplication
-    form = ExampleApp()  # We set the form to be our ExampleApp (design)
-    form.show()  # Show the form
-    app.exec_()  # and execute the app
+    mainwin = MainWin()  # We set the form to be our ExampleApp (design)
+    mainwin.show()  # Show the form
+    sys.exit(app.exec_())  # and execute the app
 
 
 if __name__ == '__main__':

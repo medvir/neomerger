@@ -6,19 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>681</width>
-    <height>758</height>
+    <width>667</width>
+    <height>816</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>NeoMerger</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="11" column="0">
-     <widget class="QListWidget" name="listWidget_1"/>
-    </item>
-    <item row="9" column="2">
+    <item row="10" column="3">
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -31,15 +28,31 @@
       </property>
      </spacer>
     </item>
-    <item row="10" column="3">
-     <widget class="QLabel" name="label_8">
+    <item row="11" column="4">
+     <widget class="QListWidget" name="listWidget_2"/>
+    </item>
+    <item row="14" column="0">
+     <widget class="QPushButton" name="outFolderButton">
       <property name="text">
-       <string>Indices from log file 2</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+       <string>Select output folder</string>
       </property>
      </widget>
+    </item>
+    <item row="9" column="3">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="11" column="0">
+     <widget class="QListWidget" name="listWidget_1"/>
     </item>
     <item row="10" column="0">
      <widget class="QLabel" name="label_7">
@@ -51,14 +64,14 @@
       </property>
      </widget>
     </item>
-    <item row="13" column="2">
+    <item row="16" column="3">
      <widget class="QPushButton" name="mergeButton">
       <property name="text">
        <string>Merge</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="2" colspan="2">
+    <item row="0" column="3" colspan="2">
      <widget class="QLineEdit" name="log1_line"/>
     </item>
     <item row="7" column="0">
@@ -81,7 +94,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="2">
+    <item row="3" column="3">
      <widget class="QLineEdit" name="inv_line">
       <property name="text">
        <string/>
@@ -98,15 +111,8 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="2">
+    <item row="5" column="3">
      <widget class="QLineEdit" name="desc_line"/>
-    </item>
-    <item row="2" column="2">
-     <widget class="QLineEdit" name="MS_line">
-      <property name="text">
-       <string>MS...</string>
-      </property>
-     </widget>
     </item>
     <item row="6" column="0">
      <widget class="QLabel" name="label_5">
@@ -118,7 +124,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="2">
+    <item row="4" column="3">
      <widget class="QLineEdit" name="exp_line"/>
     </item>
     <item row="4" column="0">
@@ -148,7 +154,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="2">
+    <item row="7" column="3">
      <widget class="QDateEdit" name="dateEdit">
       <property name="maximumDate">
        <date>
@@ -172,11 +178,8 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2" colspan="2">
+    <item row="1" column="3" colspan="2">
      <widget class="QLineEdit" name="log2_line"/>
-    </item>
-    <item row="11" column="3">
-     <widget class="QListWidget" name="listWidget_2"/>
     </item>
     <item row="1" column="0">
      <widget class="QPushButton" name="log2Button">
@@ -185,18 +188,18 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="2">
+    <item row="6" column="3">
      <widget class="QLineEdit" name="cycles_line"/>
     </item>
-    <item row="8" column="2">
+    <item row="8" column="3">
      <widget class="QPushButton" name="listButton">
       <property name="text">
        <string>List</string>
       </property>
      </widget>
     </item>
-    <item row="12" column="2">
-     <spacer name="verticalSpacer_2">
+    <item row="13" column="4">
+     <spacer name="verticalSpacer_4">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -207,6 +210,52 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="14" column="3" colspan="2">
+     <widget class="QLineEdit" name="outfolder_line"/>
+    </item>
+    <item row="10" column="4">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Indices from log file 2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="0">
+     <spacer name="verticalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="15" column="3">
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLineEdit" name="MS_line">
+      <property name="text">
+       <string>MS...</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -224,7 +273,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>681</width>
+     <width>667</width>
      <height>22</height>
     </rect>
    </property>
@@ -267,6 +316,24 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>MS_line</tabstop>
+  <tabstop>inv_line</tabstop>
+  <tabstop>exp_line</tabstop>
+  <tabstop>desc_line</tabstop>
+  <tabstop>cycles_line</tabstop>
+  <tabstop>dateEdit</tabstop>
+  <tabstop>listButton</tabstop>
+  <tabstop>outfolder_line</tabstop>
+  <tabstop>mergeButton</tabstop>
+  <tabstop>log1_line</tabstop>
+  <tabstop>log2_line</tabstop>
+  <tabstop>log1Button</tabstop>
+  <tabstop>log2Button</tabstop>
+  <tabstop>listWidget_1</tabstop>
+  <tabstop>listWidget_2</tabstop>
+  <tabstop>outFolderButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
