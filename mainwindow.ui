@@ -290,7 +290,7 @@
   <action name="actionQuit">
    <property name="icon">
     <iconset>
-     <normaloff>quit.png</normaloff>quit.png</iconset>
+     <normaloff>img/quit.png</normaloff>img/quit.png</iconset>
    </property>
    <property name="text">
     <string>Quit</string>
@@ -305,7 +305,7 @@
   <action name="actionInfo">
    <property name="icon">
     <iconset>
-     <normaloff>info.png</normaloff>info.png</iconset>
+     <normaloff>img/info.png</normaloff>img/info.png</iconset>
    </property>
    <property name="text">
     <string>Info</string>

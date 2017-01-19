@@ -2,7 +2,6 @@
 
 block_cipher = None
 
-
 a = Analysis(['main.py'],
              pathex=['/Users/ozagordi/Dropbox/Software/neomerger'],
              binaries=[],
@@ -14,16 +13,20 @@ a = Analysis(['main.py'],
              win_no_prefer_redirects=False,
              win_private_assemblies=False,
              cipher=block_cipher)
+
 pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
+
 exe = EXE(pyz,
           a.scripts,
           exclude_binaries=True,
-          name='main',
+          name='NeoMerger',
+          icon='img/dlicon.icns',
           debug=False,
           strip=False,
           upx=True,
           console=False )
+
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
@@ -31,7 +34,8 @@ coll = COLLECT(exe,
                strip=False,
                upx=True,
                name='main')
-app = BUNDLE(coll,
+
+app = BUNDLE(exe,
              name='NeoMerger.app',
-             icon=None,
+             icon='img/dlicon.icns',
              bundle_identifier=None)
