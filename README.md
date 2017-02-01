@@ -14,7 +14,7 @@ the MiSeq.
 In December 2016 we decided to write a simple GUI for this program so that all
 technicians in the lab could use it.
 
-On January 31st, Illumina announced that NeoPrep would be discontinued.
+On 31st January 2017, Illumina announced that NeoPrep would be discontinued.
 
 ## Design of the GUI
 
